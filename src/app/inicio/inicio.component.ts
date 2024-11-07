@@ -7,5 +7,5 @@ import { FormBuilder } from '@angular/forms';
   styleUrl: './inicio.component.css'
 })
 export class InicioComponent {
-
+  
 }

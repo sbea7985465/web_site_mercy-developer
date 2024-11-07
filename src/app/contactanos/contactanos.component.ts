@@ -13,7 +13,10 @@ export class ContactanosComponent {
   constructor(private formBuilder: FormBuilder){
     this.formularioForm = this.formBuilder.group({
       nombre:"",
-      apellido:""
+      apellido:"",
+      correo_electronico:"",
+      telefono:"",
+      mensaje:""
     });
 
     

@@ -17,13 +17,6 @@
             color: aliceblue;
         }
 
-        .form-container img {
-            display: flex;
-            height: 500px;
-            width: 500px;
-            
-        }
-
         .mapa {
             display: flex;
             justify-content: center;
@@ -54,7 +47,7 @@
 
     </style>
     <div class="titulo">
-        <h1>INNOVARED</h1>
+        <h1>Mercy Developer</h1>
         <p>Tenemos una sucursal en Arica</p>
     </div>
     
@@ -63,26 +56,57 @@
         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.9979538759196!2d-70.30072062422927!3d-18.484029924187933!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915aa9c88f1a2e6d%3A0x5a782ca0c7d04276!2sDiego%20de%20Almagro%201500-1598%2C%20Arica%2C%20Arica%20y%20Parinacota!5e0!3m2!1ses!2scl!4v1729801495673!5m2!1ses!2scl" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
 
-    <div class="form-container">
-        <img src="/img/logo.png" alt="logo">
-        <form>
-            <h2>Contacto</h2>
-            <p>Si tiene alguna consulta para soliciar algun servicio , Contactanos</p>
-            <div class="mb-3">
-                <label for="nombre" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="nombre" placeholder="Ingresa tu nombre">
-            </div>
-            <div class="mb-3">
-                <label for="apellido" class="form-label">Apellido</label>
-                <input type="text" class="form-control" id="apellido" placeholder="Ingresa tu apellido">
-            </div>
-            <div class="mb-3">
-                <label for="mensaje" class="form-label">Mensaje</label>
-                <textarea class="form-control" id="mensaje" rows="3" placeholder="Escribe tu mensaje"></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Enviar</button>
-        </form>
+    <div class="container">
+        <div class="row">
+            <h1>Formulario Contactanos</h1>
+        <div class="col-md-12">
+            <form [formGroup]="formularioForm" (ngSubmit)="enviarDatos()">
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" formControlName="nombre" id="nombre" 
+                    aria-describedby="nombreHelp"
+                    placeholder="Ingrese nombre">
+                    <small class="form-text text-muted" > Debe ingresar un nombre . No se aseptan simbolos</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="apellido">Apellido</label>
+                    <input type="text" class="form-control" formControlName="apellido" id="apellido" 
+                    aria-describedby="apellidoHelp"
+                    placeholder="Ingrese apellido">
+                    <small class="form-text text-muted" > Debe ingresar un apellido . No se aseptan simbolos</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">telefono</label>
+                    <input type="text" class="form-control" formControlName="telefono" id="telefono" 
+                    aria-describedby="telefonoHelp"
+                    placeholder="Ingrese telefono">
+                    <small class="form-text text-muted" > Debe ingresar un telefono . No se aseptan simbolos</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="correo_electronico">Correo electronico</label>
+                    <input type="text" class="form-control" formControlName="correo_electronico" id="correo_electronico" 
+                    aria-describedby="correo_electronicoHelp"
+                    placeholder="Ingrese correo electronico">
+                    <small class="form-text text-muted" > Debe ingresar un correo electronico . No se aseptan simbolos</small>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Correo electronico</label>
+                    <textarea type="text" for="mensaje" id="mensaje" class="form-control" formControlName="mensaje" 
+                    aria-describedby="mensajeHelp"></textarea>
+                    <small class="form-text text-muted" > Debe ingresar un correo electronico . No se aseptan simbolos</small>
+                </div>
+
+                <button type="submit" class="btn btn-primary" > Enviar </button>
+            </form>
+        </div>
+        </div>
     </div>
+    <p *ngIf="datosFormulario!=null">Hola {{datosFormulario.nombre}} {{datosFormulario.apellido}} , su mensaje ha sido enviado correctamente </p>
+
     
 </body>
 </html>
